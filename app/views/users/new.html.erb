@@ -1,0 +1,29 @@
+<h1>Sign Up for Rojo!</h1>
+
+<%= form_tag(users_url, method: 'post') do %>
+
+  <div>
+    <%= label_tag :name %><br />
+    <%= text_field_tag :name %>
+  </div>
+
+    <div>
+    <%= label_tag :email %><br />
+    <%= email_field_tag :email %>
+  </div>
+
+  <div>
+    <%= label_tag :password %><br />
+    <%= password_field_tag :password %>
+  </div>
+
+  <div>
+    <%= label_tag :password_confirmation %><br />
+    <%= password_field_tag :password_confirmation %>
+  </div>
+
+
+  <div>
+    <%= submit_tag "Create User" %>
+  </div>
+<% end %>

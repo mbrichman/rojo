@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rojo</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+
+  <nav>
+    <% if session[:user_id].present? %>
+      <p><%= link_to 'Sign Out', destroy_session_path %></p>
+      <% else %>
+      <p><%= link_to 'Sign In', new_session_path %></p>
+    <% end %>
+  </nav>
+</head>
+<body>
+<p><%= notice %></p>
+<%= yield %>
+
+</body>
+</html>
