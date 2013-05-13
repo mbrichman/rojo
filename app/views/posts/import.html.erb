@@ -1,0 +1,7 @@
+<h1>Enter a URL to Save</h1>
+<%= form_tag add_post_path do %>
+    <%= label_tag :url, 'URL' %>
+    <%= text_field_tag :url, nil, size:50 %>
+
+    <%= submit_tag 'Add to Rojo' %>
+<% end %>

@@ -1,0 +1,21 @@
+<h1>New Comment</h1>
+
+
+<%= form_tag(comments_url, method: 'post') do %>
+
+
+  <div>
+    <%= label_tag :user_id %><br />
+    <%= number_field_tag :user_id %>
+  </div>
+
+    <div>
+    <%= label_tag :comment %><br />
+    <%= text_field_tag :comment %>
+  </div>
+
+  
+  <div>
+    <%= submit_tag "Create Comment" %>
+  </div>
+<% end %>

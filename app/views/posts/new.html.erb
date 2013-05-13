@@ -1,0 +1,35 @@
+<h1>New Post</h1>
+
+
+<%= form_tag(posts_url, method: 'post') do %>
+
+
+  <div>
+    <%= label_tag :url %><br />
+    <%= text_field_tag :url %>
+  </div>
+
+
+    <div>
+    <%= label_tag :title %><br />
+    <%= text_field_tag :title %>
+  </div>
+
+    <div>
+    <%= label_tag :body %><br />
+    <%= text_area_tag :body %>
+  </div>
+
+    <div>
+    <%= label_tag :date %><br />
+    <%= text_field_tag :date %>
+  </div>
+
+  <div>
+    <%= hidden_field_tag :user_id %>
+  </div>
+
+  <div>
+    <%= submit_tag "Create Post" %>
+  </div>
+<% end %>

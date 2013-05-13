@@ -1,0 +1,38 @@
+<h1>Post #<%= @post.id %></h1>
+
+<p>
+  <b>User:</b>
+  <%= @post.user.name %> <b>Date: </b><%= @post.date %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @post.title %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%= @post.body.html_safe  %>
+</p>
+
+<h2>Comments</h2>
+<div>
+  <% @comments.each do |comment| %>
+    <p><%= comment.user.name %> said:</p>
+    <p><%= comment.comment %></p>
+  <% end %>
+</div>
+<div>
+<p><%= form_tag comments_path, method: 'post' do %></p>
+
+  <%= hidden_field_tag :user_id, session[:user_id] %>
+  <%= hidden_field_tag :post_id, @post.id %>
+  <p><%= label_tag :comment, 'Add Comment' %></p>
+  <%= text_area_tag :comment, nil, rows: '10', cols: '80' %><br>
+<%= submit_tag 'Add Comment' %>
+
+<% end %>
+</div>
+
+
+

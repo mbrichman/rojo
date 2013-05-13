@@ -1,0 +1,21 @@
+<h1>Editing Comment #<%= @comment.id %></h1>
+
+
+<%= form_tag(comment_url(@comment), method: 'put') do %>
+
+  <div>
+    <%= label_tag :user_id %><br />
+    <%= number_field_tag :user_id, @comment.user_id %>
+  </div>
+
+  <div>
+    <%= label_tag :comment %><br />
+    <%= text_field_tag :comment, @comment.comment %>
+  </div>
+
+  
+  <div>
+    <%= submit_tag "Update Comment" %>
+  </div>
+
+<% end %>

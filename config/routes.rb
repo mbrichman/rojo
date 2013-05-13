@@ -1,5 +1,26 @@
 Rojo::Application.routes.draw do
-  # Routes for the User resource:
+
+  # Routes for the Comment resource:
+  # CREATE
+  get '/comments/new', controller: 'comments', action: 'new', as: 'new_comment'
+  post '/comments', controller: 'comments', action: 'create'
+
+  # READ
+  get '/comments', controller: 'comments', action: 'index', as: 'comments'
+  get '/comments/:id', controller: 'comments', action: 'show', as: 'comment'
+
+  # UPDATE
+  get '/comments/:id/edit', controller: 'comments', action: 'edit', as: 'edit_comment'
+  put '/comments/:id', controller: 'comments', action: 'update'
+
+  # DELETE
+  delete '/comments/:id', controller: 'comments', action: 'destroy'
+  #------------------------------
+
+  resources :posts
+  get '/import' => 'Posts#import'
+  post '/import' => 'Posts#add', as: 'add_post'
+
   resources :users
 
   get '/sessions/new' => 'Sessions#new', as: 'new_session'

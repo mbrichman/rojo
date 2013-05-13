@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     @user.password_confirmation = params[:password_confirmation]
 
     if @user.save
-      redirect_to users_url, notice: "Welcome to Rojo!"
+      redirect_to posts_url, notice: "Welcome to Rojo!"
       session[:user_id] = @user.id
     else
       redirect_to new_user_url, notice: "Please try again."
