@@ -9,10 +9,30 @@
   <b>Email:</b>
   <%= @user.email %>
 </p>
+<% if @user.followers.any? %>
+  <p>These people are following <%= @user.name %>:</p>
+  <ul>
+    <% @user.followers.each do |f| %>
+    <li>
+      <%= f.follower.name %>
+    </li>
+  <% end %>
+<% else %>
+    <p><%= @user.name %> has no followers yet.</p>
+<% end %>
+  </ul>
 
-<p>
-  <b>Password digest:</b>
-  <%= @user.password_digest %>
-</p>
+<% if @user.posts.any? %>
+  <p>Recent bookmarks:</p>
+  <div>
+    <% @user.posts.each do |p| %>
+    <p>
+      <%= link_to p.title, p.url %>
+    </p>
+  <% end %>
+<% else %>
+    <p><%= @user.name %> has no followers yet.</p>
+<% end %>
+  </div>
 
 

@@ -22,6 +22,8 @@ Rojo::Application.routes.draw do
   post '/import' => 'Posts#add', as: 'add_post'
 
   resources :users
+  post '/users/follow' => 'Users#follow', as: 'followme'
+
 
   get '/sessions/new' => 'Sessions#new', as: 'new_session'
   post '/sessions/create' => 'Sessions#create', as: 'create_session'

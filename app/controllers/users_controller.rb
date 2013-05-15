@@ -28,6 +28,19 @@ class UsersController < ApplicationController
     end
   end
 
+  def follow
+    @follower = Follower.new
+    @follower.user_id = params[:follower_id]
+    @follower.follower_id = session[:user_id]
+
+    if @follower.save
+      redirect_to users_url
+    else
+      @users = User.all
+      render 'index'
+    end
+  end
+
   def edit
     @user = User.find_by_id(params[:id])
   end
